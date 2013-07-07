@@ -1,0 +1,21 @@
+(defmacro defcomponentsystem-m
+  "Params: [name component-keyword doc-string? [params*]
+ [ces-param entity-param component-param] body].
+"
+  [name componeent-keyword & r]
+
+  (let [[doc-string-seq r] (if (string? (first r))
+                             [[(first r)] (next r)]
+                             [[] r])
+        [system-params & body] r]
+
+    `(defcomponentsystem
+       ~@doc-string-seq
+       ~system-params
+       [ces# entity# component#]
+       (first
+        (second
+         ((domonad state-m
+                   [~@body]
+                   nil)
+          [ces# entity# component#]))))))

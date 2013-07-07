@@ -9,5 +9,15 @@
               :url "http://creativecommons.org/publicdomain/zero/1.0/"
               :distribution :repo
               :comments "Dual-licensed. Any of the two licenses may be chosen."}]
-  :dependencies [[org.clojure/clojure "1.5.1"]
-                 [org.clojure/core.incubator "0.1.2"]])
+  :repositories [["libgdx" "http://libgdx.badlogicgames.com/nightlies/maven/"]
+                 ]
+
+  :plugins [[lein-swank "1.4.5"]]
+  
+  :dependencies [[org.clojure/algo.generic "0.1.1"]
+                 [org.clojure/algo.monads "0.1.4"]
+                 [org.clojure/clojure "1.5.1"]
+                 [org.clojure/core.incubator "0.1.2"]
+                 [com.badlogic.gdx/gdx "0.9.9-SNAPSHOT"]
+                 [com.badlogic.gdx/gdx-backend-lwjgl "0.9.9-SNAPSHOT"]
+                 ])
